@@ -1,0 +1,3 @@
+class HomeContreoller < ApplicationContreoller
+  
+end
