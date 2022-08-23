@@ -24,14 +24,14 @@
             <%# <%= link_to "Hola #{current_user.first_name}", edit_user_path(current_user), class: 'nav-link' %> %>
           </li>
           <li class='nav-item'>
-            <%# <%= link_to 'log out', destroy_user_session_path, method: :delete, class: 'nav-link' %> %>
+            <%= link_to 'log out', destroy_user_session_path, method: :delete, class: 'nav-link' %>
           </li>
         <% else %>
           <li class='nav-item float-right'>
             <%= link_to 'log in', new_user_session_path, class: 'nav-link' %>
           </li>
           <li class='nav-item float-right'>
-            <%= link_to 'registration', new_user_path, class: 'nav-link' %>
+            <%= link_to 'registration', new_user_registration_path, class: 'nav-link' %>
           </li>
         
       <% end %>
