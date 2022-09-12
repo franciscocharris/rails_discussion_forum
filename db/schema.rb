@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_29_204332) do
+ActiveRecord::Schema.define(version: 2022_09_05_211926) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 2022_08_29_204332) do
     t.string "channel"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "discussion_id", null: false
+    t.index ["discussion_id"], name: "index_channels_on_discussion_id"
   end
 
   create_table "discussions", force: :cascade do |t|
@@ -55,6 +57,7 @@ ActiveRecord::Schema.define(version: 2022_08_29_204332) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "channels", "discussions"
   add_foreign_key "discussions", "channels"
   add_foreign_key "discussions", "users"
   add_foreign_key "replies", "discussions"
