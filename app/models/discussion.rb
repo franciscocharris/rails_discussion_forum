@@ -3,6 +3,6 @@ class Discussion < ApplicationRecord
   belongs_to :user
   has_many :replies, dependent: :destroy
 
-  validates :title, presence true
-  validates :content, presence true
+  validates :title, presence: true
+  validates :content, presence: true
 end
